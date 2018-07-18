@@ -20,7 +20,7 @@ export class CustomerComponent implements OnInit {
   resetForm (form? : NgForm){
       if (form != null)
       form.reset();
-      console.log("my reset button working");
+      console.log("reset button working");
     this.customerService.selectedCustomer = {
         FirstName : '',
         LastName : '',
@@ -29,5 +29,14 @@ export class CustomerComponent implements OnInit {
         Categories : ''
     }
   }
+
+
+    onSubmit(form : NgForm){
+        console.log("submit button working");
+        this.customerService.postCustomer(form.value)
+        .subscribe(data => {
+            this.resetForm(form);
+        })
+    }
 
 }
