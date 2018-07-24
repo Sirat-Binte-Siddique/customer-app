@@ -30,30 +30,35 @@ export class CustomerComponent implements OnInit {
         }
     }
 
-    // onSubmit(form : NgForm){
-    //     console.log("submit button working");
-    //     this.customerService.postCustomer(form.value)
-    //     .subscribe(data => {
-    //         this.resetForm(form);
-    //     })
-    // }
-
-
-    onSubmit(form: NgForm) {
-        let newCustomer;
-        this.customerService.postCustomer(newCustomer).subscribe(
-            data => {
-                this.resetForm(form);
-                return true;
+    onSubmit(form : NgForm){
+        console.log("submit button working");
+        this.customerService.postCustomer(form.value)
+        .subscribe(
+            res => {
+                console.log(res);
             },
-            error => {
-                console.error("Error saving food!");
-                console.log(" somethin is wrong ");
-                // return Observable.throw(error);
+            err => {
+                console.log("something wrong");
             }
         );
     }
 
+
+
+    // onSubmit(form: NgForm) {
+    //     let newCustomer;
+    //     this.customerService.postCustomer(newCustomer).subscribe(
+    //         data => {
+    //             this.resetForm(form);
+    //             return true;
+    //         },
+    //         error => {
+    //             console.error("Error saving food!");
+    //             console.log(" somethin is wrong ");
+    //             // return Observable.throw(error);
+    //         }
+    //     );
+    // }
 
 
 }
