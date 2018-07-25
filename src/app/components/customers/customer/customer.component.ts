@@ -36,6 +36,7 @@ export class CustomerComponent implements OnInit {
         .subscribe(
             res => {
                 console.log(res);
+                this.resetForm(form);
             },
             err => {
                 console.log("something wrong");
@@ -44,21 +45,6 @@ export class CustomerComponent implements OnInit {
     }
 
 
-
-    // onSubmit(form: NgForm) {
-    //     let newCustomer;
-    //     this.customerService.postCustomer(newCustomer).subscribe(
-    //         data => {
-    //             this.resetForm(form);
-    //             return true;
-    //         },
-    //         error => {
-    //             console.error("Error saving food!");
-    //             console.log(" somethin is wrong ");
-    //             // return Observable.throw(error);
-    //         }
-    //     );
-    // }
 
 
 }
