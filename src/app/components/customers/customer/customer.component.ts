@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { CustomerService } from '../../../service/customer.service';
 import { Customer } from '../../../service/customer.model';
 
+
 @Component({
     selector: 'app-customer',
     templateUrl: './customer.component.html',
