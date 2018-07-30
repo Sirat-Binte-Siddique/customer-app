@@ -31,20 +31,20 @@ export class CustomerComponent implements OnInit {
         }
     }
 
+
     onSubmit(form : NgForm){
         console.log("submit button working");
         this.customerService.postCustomer(form.value)
         .subscribe(
             res => {
-                console.log(res);
                 this.resetForm(form);
+                console.log(res);
             },
             err => {
                 console.log("something wrong");
             }
         );
     }
-
 
 
 

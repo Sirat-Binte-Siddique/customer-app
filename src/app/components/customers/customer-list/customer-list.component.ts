@@ -10,15 +10,15 @@ import { Customer } from '../../../service/customer.model';
 })
 export class CustomerListComponent implements OnInit {
 
-    public allcustomerlist;
+    public customerList;
 
     constructor(private customerService: CustomerService) { }
 
   ngOnInit() {
     this.customerService.getCustomerList().subscribe( res => {
-      this.allcustomerlist = res;
-      console.log(this.allcustomerlist);
-    }); 
+        this.customerList = res;
+        console.log(this.customerList);
+    });
 
   }
 

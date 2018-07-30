@@ -21,18 +21,15 @@ export class CustomerService {
     postCustomer(cus: Customer) {
         const headers = new Headers();
         const options = new RequestOptions({ headers: headers });
-        const url = 'http://localhost:4200/posts';
-        return this.http.post('url', cus, options);
+        return this.http.post('http://localhost:4200/posts', cus, options).pipe(map(x => x.json()));
     }
-
 
     // getCustomerList(){
     //   const api = 'http://localhost:4200/posts';
-    //   return this.http.get(api).pipe(map(res => res.json()));      
+    //   return this.http.get(api).pipe(map(res => res.json()));
     // }
-   
 
-    getCustomerList(): Observable<any> {
+    getCustomerList(): Observable<Customer[]> {
         return this.http.get('http://localhost:4200/posts')
         .pipe(map(res => res.json()));
     }
