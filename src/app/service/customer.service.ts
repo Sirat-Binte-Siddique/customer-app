@@ -18,21 +18,23 @@ export class CustomerService {
   constructor( private http : Http ) {}
 
 
-    postCustomer(cus: Customer) {
+    registerCustomer(cus: any) {
+        console.log(cus);
         const headers = new Headers();
         const options = new RequestOptions({ headers: headers });
-        return this.http.post('http://localhost:4200/posts', cus, options).pipe(map(x => x.json()));
+        return this.http.post('https://node-api-backend.herokuapp.com/api/register', cus, options).pipe(map(x => x.json()));
     }
 
-    // getCustomerList(){
-    //   const api = 'http://localhost:4200/posts';
-    //   return this.http.get(api).pipe(map(res => res.json()));
+    loginCustomer(cus: any) {
+        console.log(cus);
+        const headers = new Headers();
+        const options = new RequestOptions({ headers: headers });
+        return this.http.post('https://node-api-backend.herokuapp.com/api/login', cus, options).pipe(map(x => x.json()));
+    }
+
+    // getCustomerList(): Observable<Customer[]> {
+    //     return this.http.get('https://jsonplaceholder.typicode.com/todos')
+    //     .pipe(map(res => res.json()));
     // }
-
-    getCustomerList(): Observable<Customer[]> {
-        return this.http.get('http://localhost:4200/posts')
-        .pipe(map(res => res.json()));
-    }
-
 
 }

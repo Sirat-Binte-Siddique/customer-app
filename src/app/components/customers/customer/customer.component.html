@@ -1,37 +1,29 @@
 <form class="cus-form" #customerForm="ngForm" (ngSubmit)="onSubmit(customerForm)">
-    <div class="form-row">
-        <div class="form-group col-md-6">
-            <input class="form-control" name="FirstName" #FirstName="ngModel" [(ngModel)]="customerService.selectedCustomer.FirstName"
-                placeholder="First Name" required>
-            <div class="validation-error" *ngIf="FirstName.invalid && FirstName.touched"> This is required </div>
-        </div>
-        <div class="form-group col-md-6">
-            <input class="form-control" name="LastName" #LastName="ngModel" [(ngModel)]="customerService.selectedCustomer.LastName" placeholder="Last Name">
-        </div>
-    </div>
+
     <div class="form-row">
         <div class="form-group col-md-12">
-            <input class="form-control" name="Position" #Position="ngModel" [(ngModel)]="customerService.selectedCustomer.Position" placeholder="Position">
-        </div>
-    </div>
-    <div class="form-row">
-        <div class="form-group col-md-6">
-            <input class="form-control" name="Age" #Age="ngModel" [(ngModel)]="customerService.selectedCustomer.Age" placeholder="Age">
-        </div>
-        <div class="form-group col-md-6">
-            <input class="form-control" name="Categories" #Categories="ngModel" [(ngModel)]="customerService.selectedCustomer.Categories"
-                placeholder="Categories">
+            <input class="form-control" name="name" #name="ngModel" [(ngModel)]="customerService.selectedCustomer.name" placeholder="name">
         </div>
     </div>
 
     <div class="form-row">
-        <div class="form-group col-md-8">
-            <button [disabled]="!customerForm.valid" type="submit" class="btn btn-lg btn-block btn-info">
-                <i class="fa fa-floppy-o"></i> Submit</button>
+        <div class="form-group col-md-12">
+            <input class="form-control" name="email" #email="ngModel" [(ngModel)]="customerService.selectedCustomer.email" placeholder="email"
+                required>
+            <div class="validation-error" *ngIf="email.invalid && email.touched"> This is required </div>
         </div>
-        <div class="form-group col-md-4">
-            <button type="button" class="btn btn-lg btn-block btn-secondary" (click)="resetForm(customerForm)">
-                <i class="fa fa-repeat"></i> Reset</button>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <input class="form-control" name="password" #password="ngModel" [(ngModel)]="customerService.selectedCustomer.password" placeholder="password">
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <button [disabled]="!customerForm.valid" type="submit" class="btn btn-lg btn-block btn-info">
+                <i class="fa fa-floppy-o"></i> register </button>
         </div>
     </div>
 

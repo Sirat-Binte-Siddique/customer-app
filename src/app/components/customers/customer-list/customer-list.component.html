@@ -1,6 +1,24 @@
-<table class="table table-sm table-hover">
-    <tr *ngFor="let customer of customerService.customerList">
-      <td>{{customer.FirstName}} - {{employee.LastName}}</td>
-      <td>{{customer.Position}}</td>
-    </tr>
-  </table>
+<form class="cus-form" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <input class="form-control" name="email" #email="ngModel" [(ngModel)]="customerService.selectedCustomer.email" placeholder="email"
+                required>
+            <!-- <div class="validation-error" *ngIf="email.invalid && email.touched"> This is required </div> -->
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <input class="form-control" name="password" #password="ngModel" [(ngModel)]="customerService.selectedCustomer.password" placeholder="password">
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <button [disabled]="!loginForm.valid" type="submit" class="btn btn-lg btn-block btn-info">
+                <i class="fa fa-floppy-o"></i> Login</button>
+        </div>
+    </div>
+
+</form>

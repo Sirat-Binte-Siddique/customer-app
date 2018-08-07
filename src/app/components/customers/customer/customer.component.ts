@@ -23,21 +23,17 @@ export class CustomerComponent implements OnInit {
         if (form != null)
             form.reset();
         this.customerService.selectedCustomer = {
-            FirstName: '',
-            LastName: '',
-            Position: '',
-            Age: null,
-            Categories: ''
+            name: '',
+            email: '',
+            password: ''
         }
     }
 
 
     onSubmit(form : NgForm){
-        console.log("submit button working");
-        this.customerService.postCustomer(form.value)
-        .subscribe(
-            res => {
-                this.resetForm(form);
+        // console.log(form.value);
+        this.customerService.registerCustomer(form.value).subscribe(res => {
+               // this.resetForm(form);
                 console.log(res);
             },
             err => {
