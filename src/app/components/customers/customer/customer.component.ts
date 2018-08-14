@@ -23,8 +23,7 @@ export class CustomerComponent implements OnInit {
         if (form != null)
             form.reset();
         this.customerService.selectedCustomer = {
-            name: '',
-            email: '',
+            username: '',
             password: ''
         }
     }
@@ -33,8 +32,8 @@ export class CustomerComponent implements OnInit {
     onSubmit(form : NgForm){
         // console.log(form.value);
         this.customerService.registerCustomer(form.value).subscribe(res => {
-               // this.resetForm(form);
-                console.log(res);
+               this.resetForm(form);
+               console.log(res);
             },
             err => {
                 console.log("something wrong");

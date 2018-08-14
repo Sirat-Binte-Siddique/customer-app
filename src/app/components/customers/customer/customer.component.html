@@ -2,15 +2,7 @@
 
     <div class="form-row">
         <div class="form-group col-md-12">
-            <input class="form-control" name="name" #name="ngModel" [(ngModel)]="customerService.selectedCustomer.name" placeholder="name">
-        </div>
-    </div>
-
-    <div class="form-row">
-        <div class="form-group col-md-12">
-            <input class="form-control" name="email" #email="ngModel" [(ngModel)]="customerService.selectedCustomer.email" placeholder="email"
-                required>
-            <div class="validation-error" *ngIf="email.invalid && email.touched"> This is required </div>
+            <input class="form-control" name="username" #username="ngModel" [(ngModel)]="customerService.selectedCustomer.username" placeholder="name">
         </div>
     </div>
 

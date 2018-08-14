@@ -1,0 +1,51 @@
+{
+  "name": "simplesocialapp",
+  "version": "1.0.0",
+  "description": "SimpleSocial",
+  "main": "index.js",
+  "scripts": {
+    "prod": "cd build && node main",
+    "build": "node build.js && backpack build",
+    "start": "node build.js && backpack dev | pino -o 'short'",
+    "test": "node build.js && mocha test/**/*.ts --exit"
+  },
+  "dependencies": {
+    "@types/socket.io": "^1.4.33",
+    "base64-img": "^1.0.4",
+    "bcrypt": "^2.0.1",
+    "bluebird": "^3.5.0",
+    "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
+    "dotenv": "^4.0.0",
+    "express": "^4.16.2",
+    "jsonwebtoken": "^8.2.1",
+    "mongoose": "^5.1.2",
+    "pino": "^4.7.3",
+    "socket.io": "^2.1.1",
+    "source-map-support": "^0.4.15",
+    "swagger-express-middleware": "^1.0.0-alpha.12"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^2.0.0",
+    "@types/bluebird": "^3.5.20",
+    "@types/chai": "^4.1.2",
+    "@types/express": "^4.11.1",
+    "@types/jsonwebtoken": "^7.2.7",
+    "@types/lodash": "^4.14.109",
+    "@types/mocha": "^2.2.48",
+    "@types/mongodb": "^3.0.18",
+    "@types/mongoose": "^5.0.14",
+    "@types/node": "^10.1.2",
+    "@types/pino": "^4.7.1",
+    "awesome-typescript-loader": "^3.4.1",
+    "backpack-core": "^0.4.3",
+    "chai": "^4.1.2",
+    "mocha": "^4.0.1",
+    "shelljs": "^0.7.8",
+    "supertest": "^3.0.0",
+    "ts-node": "^4.1.0",
+    "tslint": "^5.3.2",
+    "typescript": "^2.7.2"
+  },
+  "author": "Rahul"
+}

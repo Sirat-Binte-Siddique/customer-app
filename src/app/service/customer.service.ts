@@ -22,7 +22,8 @@ export class CustomerService {
         console.log(cus);
         const headers = new Headers();
         const options = new RequestOptions({ headers: headers });
-        return this.http.post('https://node-api-backend.herokuapp.com/api/register', cus, options).pipe(map(x => x.json()));
+        // return this.http.post('https://node-api-backend.herokuapp.com/api/register', cus, options).pipe(map(x => x.json()));
+        return this.http.post('http://localhost:3000/api/v1/examples', cus, options).pipe(map(x => x.json()));
     }
 
     loginCustomer(cus: any) {

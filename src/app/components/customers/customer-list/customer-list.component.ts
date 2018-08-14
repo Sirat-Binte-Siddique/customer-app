@@ -27,6 +27,7 @@ export class CustomerListComponent implements OnInit {
     onSubmit(form: NgForm) {
         this.customerService.loginCustomer(form.value).subscribe(res => {
             console.log(res);
+            form.resetForm();
         },
             err => {
                 console.log("something wrong");

@@ -1,0 +1,112 @@
+swagger: "2.0"
+info:
+  version: 1.0.0
+  title: Simple Social
+  description: SimpleSocial
+basePath: /api/v1
+tags:
+  - name: Users
+    description: Simple User endpoints
+
+consumes:
+  - application/json
+produces:
+  - application/json
+
+definitions:
+  UserBody:
+    type: object
+    title: users
+    required:
+      - name
+      - username
+      - password
+      - email
+
+    properties:
+      name:
+        type: string
+        description:  name of the user
+      username:
+        type: string
+        description: username of user
+      password:
+        type: string
+        description: Password for login
+      email:
+        type: string
+        description: Email of Users
+      image:
+        type: string
+        description: image of user
+  GetToken:
+    type: object
+    title: get Token
+    required:
+      - username
+      - password
+
+    properties:
+      username:
+        type: string
+        description: username of user
+      password:
+        type: string
+        description: Password for login
+     
+
+paths:
+  /users:
+    get:
+      tags:
+        - Users
+      description: Fetch all Users
+      responses:
+        200:
+          description: Returns all Useers
+    post:
+      tags:
+        - Users
+      description: Create a new Users
+      parameters:
+        - name: body
+          in: body
+          description: number of items to skip
+          required: true
+          schema: 
+            $ref: "#/definitions/UserBody"
+      responses:
+        200:
+          description: Returns all examples
+
+  /users/getprofile:
+    get:
+      tags:
+        - Users
+      parameters:
+        - name: _token
+          in: header
+          required: true
+          description: The id of the entity to retrieve
+          type: string
+      responses:
+        200:
+          description: Return the example with the specified id
+        404:
+          description: Example not 
+  /users/gettoken:
+    post:
+      tags:
+        - Users
+      parameters:
+        - name: body
+          in: body
+          description: number of items to skip
+          required: true
+          schema: 
+            $ref: "#/definitions/GetToken"
+      responses:
+        200:
+          description: Return the example with the specified id
+        404:
+          description: Example not 
